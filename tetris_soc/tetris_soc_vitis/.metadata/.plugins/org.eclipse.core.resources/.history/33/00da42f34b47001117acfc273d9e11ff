@@ -1,0 +1,414 @@
+#include "xparameters.h"
+#include "xil_io.h"
+#include "xil_printf.h"
+#include "xuartps_hw.h"
+#include "xtime_l.h"
+#include <stdint.h>
+
+// ---------------------------------------------------------------------------
+// Hardware map
+// ---------------------------------------------------------------------------
+#define TETRIS_BASE      0x43C00000U
+#define REG_CONTROL      (TETRIS_BASE + 0x00)
+#define REG_BORDER_COLOR (TETRIS_BASE + 0x04)
+#define REG_BLOCK_COLOR  (TETRIS_BASE + 0x08)
+#define REG_ACTIVE0_XY   (TETRIS_BASE + 0x0C)
+#define REG_ACTIVE1_XY   (TETRIS_BASE + 0x10)
+#define REG_ACTIVE2_XY   (TETRIS_BASE + 0x14)
+#define REG_ACTIVE3_XY   (TETRIS_BASE + 0x18)
+// board BRAM: word addr 16+(row*10+col), byte addr = 0x40 + cell*4
+#define BOARD_CELL(r,c)  (TETRIS_BASE + 0x40 + ((r)*10+(c))*4)
+
+#define BOARD_ROWS  20
+#define BOARD_COLS  10
+
+#define REG_NEXT_PIECE   (TETRIS_BASE + 0x20)
+#define REG_SCORE_BCD    (TETRIS_BASE + 0x24)
+#define REG_LINES_BCD    (TETRIS_BASE + 0x28)
+#define REG_LEVEL_BCD    (TETRIS_BASE + 0x2C)
+
+// active piece reg indexed by block number
+static const uint32_t ACTIVE_REG[4] = {
+    REG_ACTIVE0_XY, REG_ACTIVE1_XY, REG_ACTIVE2_XY, REG_ACTIVE3_XY
+};
+
+// off-screen sentinel: y=0xFF never matches a board row
+#define OFF_SCREEN  0xFF00U
+
+// ---------------------------------------------------------------------------
+// Piece data
+// CELLS[type][rotation][block] = {row_offset, col_offset}
+// ---------------------------------------------------------------------------
+static const int8_t CELLS[7][4][4][2] = {
+    /* 0: I */
+    {{{1,0},{1,1},{1,2},{1,3}},
+     {{0,2},{1,2},{2,2},{3,2}},
+     {{1,0},{1,1},{1,2},{1,3}},
+     {{0,2},{1,2},{2,2},{3,2}}},
+    /* 1: O */
+    {{{0,1},{0,2},{1,1},{1,2}},
+     {{0,1},{0,2},{1,1},{1,2}},
+     {{0,1},{0,2},{1,1},{1,2}},
+     {{0,1},{0,2},{1,1},{1,2}}},
+    /* 2: T */
+    {{{0,0},{0,1},{0,2},{1,1}},
+     {{0,1},{1,0},{1,1},{2,1}},
+     {{0,1},{1,0},{1,1},{1,2}},
+     {{0,1},{1,1},{1,2},{2,1}}},
+    /* 3: S */
+    {{{0,1},{0,2},{1,0},{1,1}},
+     {{0,0},{1,0},{1,1},{2,1}},
+     {{0,1},{0,2},{1,0},{1,1}},
+     {{0,0},{1,0},{1,1},{2,1}}},
+    /* 4: Z */
+    {{{0,0},{0,1},{1,1},{1,2}},
+     {{0,1},{1,0},{1,1},{2,0}},
+     {{0,0},{0,1},{1,1},{1,2}},
+     {{0,1},{1,0},{1,1},{2,0}}},
+    /* 5: J */
+    {{{0,0},{1,0},{1,1},{1,2}},
+     {{0,0},{0,1},{1,0},{2,0}},
+     {{0,0},{0,1},{0,2},{1,2}},
+     {{0,1},{1,1},{2,0},{2,1}}},
+    /* 6: L */
+    {{{0,2},{1,0},{1,1},{1,2}},
+     {{0,0},{1,0},{2,0},{2,1}},
+     {{0,0},{0,1},{0,2},{1,0}},
+     {{0,0},{0,1},{1,1},{2,1}}},
+};
+
+// tile ID written to BRAM when piece locks (1-7, matches PL palette)
+static const uint8_t PIECE_TILE[7]  = {1, 2, 3, 4, 5, 6, 7};
+
+// active piece color written to REG_BLOCK_COLOR (matches PL palette RGB444)
+static const uint32_t PIECE_COLOR[7] = {
+    0x0EE,  // I  cyan
+    0xEE0,  // O  yellow
+    0x90E,  // T  purple
+    0x0E0,  // S  green
+    0xE00,  // Z  red
+    0x00E,  // J  blue
+    0xE60,  // L  orange
+};
+
+// ---------------------------------------------------------------------------
+// Game state
+// ---------------------------------------------------------------------------
+static uint8_t board[BOARD_ROWS][BOARD_COLS];
+typedef struct { int row, col, type, rot; } Piece;
+static Piece cur;
+static int score, level, lines_total, game_over, next_type;
+static XTime last_drop;
+static uint32_t lfsr;
+
+// ---------------------------------------------------------------------------
+// Hardware write helpers
+// ---------------------------------------------------------------------------
+static void hw_write_active(const Piece *p)
+{
+    int i;
+    Xil_Out32(REG_BLOCK_COLOR, PIECE_COLOR[p->type]);
+    for (i = 0; i < 4; i++) {
+        int r = p->row + CELLS[p->type][p->rot][i][0];
+        int c = p->col + CELLS[p->type][p->rot][i][1];
+        Xil_Out32(ACTIVE_REG[i], ((uint32_t)(r & 0xFF) << 8) | (uint32_t)(c & 0xFF));
+    }
+}
+
+static void hw_hide_active(void)
+{
+    int i;
+    for (i = 0; i < 4; i++)
+        Xil_Out32(ACTIVE_REG[i], OFF_SCREEN);
+}
+
+static void hw_write_cell(int r, int c, uint8_t tile)
+{
+    Xil_Out32(BOARD_CELL(r, c), (uint32_t)tile);
+}
+
+static void hw_board_flush(void)
+{
+    int r, c;
+    for (r = 0; r < BOARD_ROWS; r++)
+        for (c = 0; c < BOARD_COLS; c++)
+            hw_write_cell(r, c, board[r][c]);
+}
+
+// ---------------------------------------------------------------------------
+// Timing
+// ---------------------------------------------------------------------------
+static int drop_interval_ms(void)
+{
+    // NES frames-per-row table, converted to ms at 60fps
+    static const int FRAMES[30] = {
+        48,43,38,33,28,23,18,13,8,6,  // levels 0-9
+        5,5,5,4,4,4,3,3,3,2,          // levels 10-19
+        2,2,2,2,2,2,2,2,2,1           // levels 20-29
+    };
+    int lv = (level < 29) ? level : 29;
+    return FRAMES[lv] * 1000 / 60;
+}
+
+static int elapsed_ms(XTime since)
+{
+    XTime now;
+    XTime_GetTime(&now);
+    return (int)((now - since) * 1000ULL / (XTime)COUNTS_PER_SECOND);
+}
+
+// ---------------------------------------------------------------------------
+// UART non-blocking poll
+// ---------------------------------------------------------------------------
+static int uart_poll(char *ch)
+{
+    if (XUartPs_ReadReg(STDIN_BASEADDRESS, XUARTPS_SR_OFFSET) & XUARTPS_SR_RXEMPTY)
+        return 0;
+    *ch = (char)XUartPs_ReadReg(STDIN_BASEADDRESS, XUARTPS_FIFO_OFFSET);
+    return 1;
+}
+
+// ---------------------------------------------------------------------------
+// Piece logic
+// ---------------------------------------------------------------------------
+static int piece_valid(const Piece *p)
+{
+    int i, r, c;
+    for (i = 0; i < 4; i++) {
+        r = p->row + CELLS[p->type][p->rot][i][0];
+        c = p->col + CELLS[p->type][p->rot][i][1];
+        if (r < 0 || r >= BOARD_ROWS || c < 0 || c >= BOARD_COLS)
+            return 0;
+        if (board[r][c])
+            return 0;
+    }
+    return 1;
+}
+
+static void piece_lock(void)
+{
+    int i, r, c;
+    uint8_t tile = PIECE_TILE[cur.type];
+    for (i = 0; i < 4; i++) {
+        r = cur.row + CELLS[cur.type][cur.rot][i][0];
+        c = cur.col + CELLS[cur.type][cur.rot][i][1];
+        if (r >= 0 && r < BOARD_ROWS && c >= 0 && c < BOARD_COLS) {
+            board[r][c] = tile;
+            hw_write_cell(r, c, tile);
+        }
+    }
+}
+
+static int clear_lines(void)
+{
+    int r, c, wr, cleared = 0;
+    for (r = BOARD_ROWS - 1; r >= 0; r--) {
+        int full = 1;
+        for (c = 0; c < BOARD_COLS; c++)
+            if (!board[r][c]) { full = 0; break; }
+        if (full) {
+            cleared++;
+            for (wr = r; wr > 0; wr--)
+                for (c = 0; c < BOARD_COLS; c++)
+                    board[wr][c] = board[wr-1][c];
+            for (c = 0; c < BOARD_COLS; c++)
+                board[0][c] = 0;
+            r++;
+        }
+    }
+    if (cleared)
+        hw_board_flush();
+    return cleared;
+}
+
+static void write_score_bcd(void)
+{
+    uint32_t bcd = 0;
+    int s = score, i;
+    for (i = 0; i < 6; i++) {
+        bcd |= (uint32_t)(s % 10) << (i * 4);
+        s /= 10;
+    }
+    Xil_Out32(REG_SCORE_BCD, bcd);
+}
+
+static void write_lines_level_bcd(void)
+{
+    uint32_t ln = 0;
+    int l = lines_total, i;
+    for (i = 0; i < 4; i++) {
+        ln |= (uint32_t)(l % 10) << (i * 4);
+        l /= 10;
+    }
+    Xil_Out32(REG_LINES_BCD, ln);
+
+    uint32_t lv = (uint32_t)((level / 10) << 4) | (uint32_t)(level % 10);
+    Xil_Out32(REG_LEVEL_BCD, lv);
+}
+
+static void update_score(int cleared)
+{
+    static const int PTS[5] = {0, 40, 100, 300, 1200};
+    if (cleared > 0) {
+        score += PTS[(cleared > 4) ? 4 : cleared] * (level + 1);
+        lines_total += cleared;
+        level = lines_total / 10;
+        xil_printf("Lines: %d  Score: %d  Level: %d\r\n", lines_total, score, level);
+        write_score_bcd();
+        write_lines_level_bcd();
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Pseudo-random (Galois LFSR)
+// ---------------------------------------------------------------------------
+static int rand_piece(void)
+{
+    lfsr ^= lfsr << 13;
+    lfsr ^= lfsr >> 17;
+    lfsr ^= lfsr << 5;
+    return (int)(lfsr % 7);
+}
+
+// ---------------------------------------------------------------------------
+// Spawn
+// ---------------------------------------------------------------------------
+static void spawn_piece(void)
+{
+    cur.type = next_type;
+    cur.rot  = 0;
+    cur.row  = 0;
+    cur.col  = 3;
+
+    next_type = rand_piece();
+    Xil_Out32(REG_NEXT_PIECE, (uint32_t)next_type);
+
+    if (!piece_valid(&cur)) {
+        game_over = 1;
+        hw_hide_active();
+        xil_printf("GAME OVER  Score: %d  Lines: %d  Level: %d\r\n",
+                   score, lines_total, level);
+        xil_printf("Press r to restart.\r\n");
+        return;
+    }
+    hw_write_active(&cur);
+}
+
+// ---------------------------------------------------------------------------
+// Game init
+// ---------------------------------------------------------------------------
+static void game_init(void)
+{
+    int r, c;
+    for (r = 0; r < BOARD_ROWS; r++)
+        for (c = 0; c < BOARD_COLS; c++)
+            board[r][c] = 0;
+
+    score = 0; level = 0; lines_total = 9; game_over = 0;
+
+    XTime_GetTime((XTime *)&lfsr);
+    if (!lfsr) lfsr = 1;
+
+    next_type = rand_piece();
+    Xil_Out32(REG_NEXT_PIECE, (uint32_t)next_type);
+    write_score_bcd();
+    write_lines_level_bcd();
+
+    hw_board_flush();
+    spawn_piece();
+    XTime_GetTime(&last_drop);
+
+    xil_printf("=== Tetris ===\r\n");
+    xil_printf("a=left  d=right  w=rotate  s=soft-drop  SPACE=hard-drop  r=restart\r\n");
+}
+
+// ---------------------------------------------------------------------------
+// Input
+// ---------------------------------------------------------------------------
+static void handle_input(char ch)
+{
+    Piece next;
+
+    if (game_over) {
+        if (ch == 'r' || ch == 'R') game_init();
+        return;
+    }
+
+    next = cur;
+
+    switch (ch) {
+    case 'a': case 'A':
+        next.col--;
+        if (piece_valid(&next)) { cur = next; hw_write_active(&cur); }
+        break;
+
+    case 'd': case 'D':
+        next.col++;
+        if (piece_valid(&next)) { cur = next; hw_write_active(&cur); }
+        break;
+
+    case 'w': case 'W':
+        next.rot = (next.rot + 1) % 4;
+        if (piece_valid(&next)) { cur = next; hw_write_active(&cur); }
+        break;
+
+    case 's': case 'S':
+        next.row++;
+        if (piece_valid(&next)) {
+            cur = next;
+            XTime_GetTime(&last_drop);
+            hw_write_active(&cur);
+        }
+        break;
+
+    case ' ':
+        while (1) { next.row++; if (!piece_valid(&next)) break; cur = next; }
+        hw_hide_active();
+        piece_lock();
+        update_score(clear_lines());
+        spawn_piece();
+        XTime_GetTime(&last_drop);
+        break;
+
+    default:
+        break;
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Main
+// ---------------------------------------------------------------------------
+int main(void)
+{
+    char ch;
+    Piece next;
+
+    // enable renderer, show grid, no test pattern
+    Xil_Out32(REG_BORDER_COLOR, 0xFFF);
+    Xil_Out32(REG_CONTROL, 0x5);  // bit0=enable, bit2=show_grid
+
+    xil_printf("Tetris SoC starting...\r\n");
+    game_init();
+
+    while (1) {
+        if (uart_poll(&ch))
+            handle_input(ch);
+
+        if (!game_over && elapsed_ms(last_drop) >= drop_interval_ms()) {
+            next = cur;
+            next.row++;
+            if (piece_valid(&next)) {
+                cur = next;
+                hw_write_active(&cur);
+            } else {
+                hw_hide_active();
+                piece_lock();
+                update_score(clear_lines());
+                spawn_piece();
+            }
+            XTime_GetTime(&last_drop);
+        }
+    }
+
+    return 0;
+}

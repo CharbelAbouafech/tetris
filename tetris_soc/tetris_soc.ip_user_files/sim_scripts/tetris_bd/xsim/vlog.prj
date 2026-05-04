@@ -1,0 +1,17 @@
+verilog xil_defaultlib --include "C:/Xilinx/Vivado/2023.1/data/xilinx_vip/include" --include "../../../../tetris_soc.gen/sources_1/bd/tetris_bd/ipshared/30ef" --include "../../../../tetris_soc.gen/sources_1/bd/tetris_bd/ipshared/ec67/hdl" --include "../../../../tetris_soc.gen/sources_1/bd/tetris_bd/ipshared/aed8/hdl" \
+"../../../bd/tetris_bd/ip/tetris_bd_clk_wiz_0_0/tetris_bd_clk_wiz_0_0_clk_wiz.v" \
+"../../../bd/tetris_bd/ip/tetris_bd_clk_wiz_0_0/tetris_bd_clk_wiz_0_0.v" \
+"../../../bd/tetris_bd/ip/tetris_bd_processing_system7_0_0/sim/tetris_bd_processing_system7_0_0.v" \
+"../../../bd/tetris_bd/ipshared/1390/hdl/tetris_ip_v1_0_S00_AXI.v" \
+"../../../bd/tetris_bd/ipshared/1390/src/pixel_gen_test.v" \
+"../../../bd/tetris_bd/ipshared/1390/src/tetris_vga_core.v" \
+"../../../bd/tetris_bd/ipshared/1390/src/vga_sync.v" \
+"../../../bd/tetris_bd/ipshared/1390/hdl/tetris_ip_v1_0.v" \
+"../../../bd/tetris_bd/ip/tetris_bd_tetris_ip_0_0/sim/tetris_bd_tetris_ip_0_0.v" \
+"../../../bd/tetris_bd/ip/tetris_bd_auto_pc_0/sim/tetris_bd_auto_pc_0.v" \
+"../../../bd/tetris_bd/sim/tetris_bd.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

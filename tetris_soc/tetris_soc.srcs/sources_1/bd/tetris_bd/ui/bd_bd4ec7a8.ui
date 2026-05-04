@@ -1,0 +1,45 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.25542",
+   "Default View_TopLeft":"-107,2",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.5.8 2022-09-21 7111 VDI=41 GEI=38 GUI=JA:10.0
+#  -string -flagsOSRD
+preplace port DDR -pg 1 -lvl 4 -x 1010 -y 60 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -lvl 4 -x 1010 -y 90 -defaultsOSRD
+preplace port port-id_sys_clock -pg 1 -lvl 0 -x 0 -y 260 -defaultsOSRD
+preplace port port-id_reset_rtl -pg 1 -lvl 0 -x 0 -y 230 -defaultsOSRD
+preplace port port-id_vga_hs_0 -pg 1 -lvl 4 -x 1010 -y 480 -defaultsOSRD
+preplace port port-id_vga_vs_0 -pg 1 -lvl 4 -x 1010 -y 510 -defaultsOSRD
+preplace portBus vga_g_0 -pg 1 -lvl 4 -x 1010 -y 420 -defaultsOSRD
+preplace portBus vga_b_0 -pg 1 -lvl 4 -x 1010 -y 450 -defaultsOSRD
+preplace portBus vga_r_0 -pg 1 -lvl 4 -x 1010 -y 390 -defaultsOSRD
+preplace inst ps7_0_axi_periph -pg 1 -lvl 2 -x 580 -y 420 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 2 -x 580 -y 250 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 1 -x 230 -y 110 -defaultsOSRD
+preplace inst rst_ps7_0_50M -pg 1 -lvl 1 -x 230 -y 360 -defaultsOSRD
+preplace inst tetris_ip_0 -pg 1 -lvl 3 -x 860 -y 450 -defaultsOSRD
+preplace netloc clk_wiz_0_clk_out1 1 2 1 720 240n
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 30 220 430 540 720
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 40 230 420
+preplace netloc reset_rtl_1 1 0 2 20J 240 NJ
+preplace netloc rst_ps7_0_50M_peripheral_aresetn 1 1 2 440 550 730J
+preplace netloc sys_clock_1 1 0 2 NJ 260 NJ
+preplace netloc tetris_ip_0_vga_b 1 3 1 NJ 450
+preplace netloc tetris_ip_0_vga_g 1 3 1 980J 420n
+preplace netloc tetris_ip_0_vga_hs 1 3 1 980J 470n
+preplace netloc tetris_ip_0_vga_r 1 3 1 980J 390n
+preplace netloc tetris_ip_0_vga_vs 1 3 1 980J 490n
+preplace netloc processing_system7_0_DDR 1 1 3 NJ 60 NJ 60 NJ
+preplace netloc processing_system7_0_FIXED_IO 1 1 3 440J 90 NJ 90 NJ
+preplace netloc processing_system7_0_M_AXI_GP0 1 1 1 440 120n
+preplace netloc ps7_0_axi_periph_M00_AXI 1 2 1 N 420
+levelinfo -pg 1 0 230 580 860 1010
+pagesize -pg 1 -db -bbox -sgen -120 0 1150 560
+"
+}
+{
+   "da_axi4_cnt":"1",
+   "da_board_cnt":"2",
+   "da_ps7_cnt":"1"
+}
