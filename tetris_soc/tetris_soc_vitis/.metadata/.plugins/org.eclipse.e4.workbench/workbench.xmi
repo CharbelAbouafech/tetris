@@ -54,7 +54,7 @@
                 </children>
               </children>
             </children>
-            <children xsi:type="basic:PartSashContainer" xmi:id="_EdU9Z0FREfGhUbqc95NxjA" containerData="7500" selectedElement="_EdU9aEFREfGhUbqc95NxjA">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_EdU9Z0FREfGhUbqc95NxjA" containerData="7500" selectedElement="_EdU9bEFREfGhUbqc95NxjA">
               <children xsi:type="basic:PartSashContainer" xmi:id="_EdU9aEFREfGhUbqc95NxjA" containerData="5166" selectedElement="_EdU9aUFREfGhUbqc95NxjA" horizontal="true">
                 <children xsi:type="advanced:Placeholder" xmi:id="_EdU9aUFREfGhUbqc95NxjA" elementId="org.eclipse.ui.editorss" containerData="8000" ref="_Ec770EFREfGhUbqc95NxjA"/>
                 <children xsi:type="basic:PartStack" xmi:id="_EdU9akFREfGhUbqc95NxjA" elementId="org.eclipse.ui.views.ContentOutlineMStack" containerData="2000" selectedElement="_EdU9a0FREfGhUbqc95NxjA">
@@ -66,6 +66,7 @@
               </children>
               <children xsi:type="basic:PartSashContainer" xmi:id="_EdU9bEFREfGhUbqc95NxjA" containerData="4834" selectedElement="_EdU9bUFREfGhUbqc95NxjA" horizontal="true">
                 <children xsi:type="basic:PartStack" xmi:id="_EdU9bUFREfGhUbqc95NxjA" elementId="org.eclipse.ui.console.ConsoleViewMStack" containerData="6000" selectedElement="_EdU9bkFREfGhUbqc95NxjA">
+                  <tags>active</tags>
                   <children xsi:type="advanced:Placeholder" xmi:id="_EdU9bkFREfGhUbqc95NxjA" elementId="org.eclipse.ui.console.ConsoleView" ref="_EdOPsUFREfGhUbqc95NxjA" closeable="true">
                     <tags>View</tags>
                     <tags>categoryTag:General</tags>
@@ -384,11 +385,10 @@
         </children>
       </children>
     </children>
-    <sharedElements xsi:type="advanced:Area" xmi:id="_Ec770EFREfGhUbqc95NxjA" elementId="org.eclipse.ui.editorss">
+    <sharedElements xsi:type="advanced:Area" xmi:id="_Ec770EFREfGhUbqc95NxjA" elementId="org.eclipse.ui.editorss" selectedElement="_Ec770UFREfGhUbqc95NxjA">
       <children xsi:type="basic:PartStack" xmi:id="_Ec770UFREfGhUbqc95NxjA" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_wkMU0EeoEfGWpcjC8bErRQ">
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
-        <tags>active</tags>
         <children xsi:type="basic:Part" xmi:id="_nzLQoEFREfGhUbqc95NxjA" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="tetris_app_system" iconURI="platform:/plugin/com.xilinx.sdx.system/icons/solutionpadded.png" closeable="true">
           <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.xilinx.sdx.system.systemProjectSettingsEditor&quot; name=&quot;tetris_app_system.sprj&quot; partName=&quot;tetris_app_system&quot; title=&quot;tetris_app_system&quot; tooltip=&quot;tetris_app_system/tetris_app_system.sprj&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/tetris_app_system/tetris_app_system.sprj&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
@@ -430,8 +430,6 @@
           <tags>Editor</tags>
           <tags>removeOnHide</tags>
           <tags>org.eclipse.cdt.ui.editor.CEditor</tags>
-          <tags>active</tags>
-          <tags>activeOnClose</tags>
         </children>
       </children>
     </sharedElements>
@@ -466,6 +464,9 @@
       <menus xsi:type="menu:PopupMenu" xmi:id="_-8Av8EedEfGWpcjC8bErRQ" elementId="com.xilinx.ide.projectExplorer#PopupMenu">
         <tags>menuContribution:popup</tags>
       </menus>
+      <menus xsi:type="menu:PopupMenu" xmi:id="_gVEEsEexEfGJTrmTCo9faA" elementId="com.xilinx.ide.projectExplorer#PopupMenu">
+        <tags>menuContribution:popup</tags>
+      </menus>
       <toolbar xmi:id="_Eoiu4UFREfGhUbqc95NxjA" elementId="com.xilinx.ide.projectExplorer"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_EdOPsEFREfGhUbqc95NxjA" elementId="com.xilinx.sdx.assistant.assistantView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Assistant" iconURI="platform:/plugin/com.xilinx.sdx.assistant/icons/assistant_view.png" tooltip="Assistant to manage Scout project setup, builds, and reports." closeable="true">
@@ -486,6 +487,8 @@
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view/>"/>
       <tags>View</tags>
       <tags>categoryTag:General</tags>
+      <tags>active</tags>
+      <tags>activeOnClose</tags>
       <menus xmi:id="_FbtRMEFREfGhUbqc95NxjA" elementId="org.eclipse.ui.console.ConsoleView">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
@@ -3375,7 +3378,7 @@
   <addons xmi:id="_ECQyF0FREfGhUbqc95NxjA" elementId="MinMax Addon" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.MinMaxAddon"/>
   <addons xmi:id="_ECQyGEFREfGhUbqc95NxjA" elementId="org.eclipse.ui.workbench.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
   <addons xmi:id="_ECYt0EFREfGhUbqc95NxjA" elementId="SplitterAddon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.splitteraddon.SplitterAddon"/>
-  <addons xmi:id="_IYS0IKimEeS11vbz3f9ezw" elementId="org.eclipse.ui.ide.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
+  <addons xmi:id="_eDaLIEexEfGJTrmTCo9faA" elementId="org.eclipse.ui.ide.addon.0" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
   <addons xmi:id="_dz0JgGOlEeSMMaPQU2nlzw" elementId="org.eclipse.ui.ide.application.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.ide.application/org.eclipse.ui.internal.ide.application.addons.ModelCleanupAddon"/>
   <addons xmi:id="_EEKPcEFREfGhUbqc95NxjA" elementId="com.xilinx.sdk.targetmanager.ui.addon.view" contributionURI="bundleclass://com.xilinx.sdk.targetmanager/com.xilinx.sdk.targetmanager.ui.ViewVisibilityAdapterAddon"/>
   <addons xmi:id="_C2JJcEHbEfGzRvaNCC7NKw" elementId="com.xilinx.sdk.targetmanager.ui.addon.view" contributionURI="bundleclass://com.xilinx.sdk.targetmanager/com.xilinx.sdk.targetmanager.ui.ViewVisibilityAdapterAddon"/>
@@ -3384,6 +3387,7 @@
   <addons xmi:id="_KBnIIUN8EfGX4ZDiD7lCtA" elementId="com.xilinx.sdk.targetmanager.ui.addon.view" contributionURI="bundleclass://com.xilinx.sdk.targetmanager/com.xilinx.sdk.targetmanager.ui.ViewVisibilityAdapterAddon"/>
   <addons xmi:id="_cy1eEEdDEfGCQtwzvpRoJA" elementId="com.xilinx.sdk.targetmanager.ui.addon.view" contributionURI="bundleclass://com.xilinx.sdk.targetmanager/com.xilinx.sdk.targetmanager.ui.ViewVisibilityAdapterAddon"/>
   <addons xmi:id="_dzKnIUeaEfGWpcjC8bErRQ" elementId="com.xilinx.sdk.targetmanager.ui.addon.view" contributionURI="bundleclass://com.xilinx.sdk.targetmanager/com.xilinx.sdk.targetmanager.ui.ViewVisibilityAdapterAddon"/>
+  <addons xmi:id="_eDj8IEexEfGJTrmTCo9faA" elementId="com.xilinx.sdk.targetmanager.ui.addon.view" contributionURI="bundleclass://com.xilinx.sdk.targetmanager/com.xilinx.sdk.targetmanager.ui.ViewVisibilityAdapterAddon"/>
   <categories xmi:id="_EC5EIEFREfGhUbqc95NxjA" elementId="org.eclipse.team.ui.category.team" name="Team" description="Actions that apply when working with a Team"/>
   <categories xmi:id="_EC5EIUFREfGhUbqc95NxjA" elementId="org.eclipse.ui.category.views" name="Views" description="Commands for opening views"/>
   <categories xmi:id="_EC5EIkFREfGhUbqc95NxjA" elementId="org.eclipse.ui.category.edit" name="Edit"/>

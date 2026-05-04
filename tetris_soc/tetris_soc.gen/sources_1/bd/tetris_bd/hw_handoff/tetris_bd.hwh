@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon May  4 02:54:04 2026" VIVADOVERSION="2023.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon May  4 04:59:47 2026" VIVADOVERSION="2023.1">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z010" NAME="tetris_bd" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -119,14 +119,14 @@
         <CONNECTION INSTANCE="clk_wiz_0" PORT="reset"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="vga_hs_0" SIGIS="undef" SIGNAME="tetris_ip_0_vga_hs">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="tetris_ip_0" PORT="vga_hs"/>
-      </CONNECTIONS>
-    </PORT>
     <PORT DIR="O" LEFT="3" NAME="vga_g_0" RIGHT="0" SIGIS="undef" SIGNAME="tetris_ip_0_vga_g">
       <CONNECTIONS>
         <CONNECTION INSTANCE="tetris_ip_0" PORT="vga_g"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="vga_hs_0" SIGIS="undef" SIGNAME="tetris_ip_0_vga_hs">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="tetris_ip_0" PORT="vga_hs"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="O" LEFT="3" NAME="vga_b_0" RIGHT="0" SIGIS="undef" SIGNAME="tetris_ip_0_vga_b">
@@ -134,14 +134,14 @@
         <CONNECTION INSTANCE="tetris_ip_0" PORT="vga_b"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" LEFT="3" NAME="vga_r_0" RIGHT="0" SIGIS="undef" SIGNAME="tetris_ip_0_vga_r">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="tetris_ip_0" PORT="vga_r"/>
-      </CONNECTIONS>
-    </PORT>
     <PORT DIR="O" NAME="vga_vs_0" SIGIS="undef" SIGNAME="tetris_ip_0_vga_vs">
       <CONNECTIONS>
         <CONNECTION INSTANCE="tetris_ip_0" PORT="vga_vs"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="3" NAME="vga_r_0" RIGHT="0" SIGIS="undef" SIGNAME="tetris_ip_0_vga_r">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="tetris_ip_0" PORT="vga_r"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -2942,7 +2942,7 @@
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
-    <MODULE COREREVISION="4" FULLNAME="/tetris_ip_0" HWVERSION="1.0" INSTANCE="tetris_ip_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="tetris_ip" VLNV="xilinx.com:user:tetris_ip:1.0">
+    <MODULE COREREVISION="2" FULLNAME="/tetris_ip_0" HWVERSION="1.0" INSTANCE="tetris_ip_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="tetris_ip" VLNV="xilinx.com:user:tetris_ip:1.0">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="" INTERFACE="S00_AXI" NAME="S00_AXI_reg" RANGE="4096" USAGE="register"/>
@@ -2950,7 +2950,7 @@
       <PARAMETERS>
         <PARAMETER NAME="C_S00_AXI_DATA_WIDTH" VALUE="32"/>
         <PARAMETER NAME="C_S00_AXI_ADDR_WIDTH" VALUE="10"/>
-        <PARAMETER NAME="Component_Name" VALUE="tetris_bd_tetris_ip_0_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="tetris_bd_tetris_ip_0_1"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
         <PARAMETER NAME="C_S00_AXI_BASEADDR" VALUE="0x43C00000"/>
         <PARAMETER NAME="C_S00_AXI_HIGHADDR" VALUE="0x43C0FFFF"/>

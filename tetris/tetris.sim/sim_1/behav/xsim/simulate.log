@@ -1,14 +1,15 @@
 Time resolution is 1 ps
-PASS: after reset xy=(0,0)
-PASS: active=1 at (0,0)
-PASS: hsync=1 initially
-PASS: vsync=1 initially
-PASS: active=1 at x=639
-PASS: active=0 at x=640
-PASS: hsync=1 before pulse at x=656
-PASS: hsync=0 at x=657
-PASS: hsync=0 at x=752
-PASS: hsync=1 at x=753
-PASS: line wrap to xy=(0,1)
-PASS: tb_vga_sync
-$finish called at time : 32061 ns : File "C:/Users/Char/Documents/ECE_520/tetris-soc/tetris/tetris.srcs/sim_1/new/tb_vga_sync.v" Line 82
+PASS: inactive -> black
+PASS: left border -> white
+PASS: active block -> block_color
+PASS: empty board cell -> black
+PASS: grid line -> 222
+PASS: checker background
+PASS: bram tile 1 (cyan)
+PASS: disabled -> black
+PASS: menu title pixel -> white
+PASS: menu background -> black
+PASS: gameover text pixel -> white
+PASS: gameover background -> black
+PASS: tb_pixel_gen
+$finish called at time : 12 ns : File "C:/Users/Char/Documents/ECE_520/tetris-soc/tetris/tetris.srcs/sim_1/new/tb_pixel_gen.v" Line 128

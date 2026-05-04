@@ -229,26 +229,26 @@
           }
         }
       },
-      "vga_hs_0": {
-        "direction": "O"
-      },
       "vga_g_0": {
         "direction": "O",
         "left": "3",
         "right": "0"
+      },
+      "vga_hs_0": {
+        "direction": "O"
       },
       "vga_b_0": {
         "direction": "O",
         "left": "3",
         "right": "0"
       },
+      "vga_vs_0": {
+        "direction": "O"
+      },
       "vga_r_0": {
         "direction": "O",
         "left": "3",
         "right": "0"
-      },
-      "vga_vs_0": {
-        "direction": "O"
       }
     },
     "components": {
@@ -2266,8 +2266,8 @@
       },
       "tetris_ip_0": {
         "vlnv": "xilinx.com:user:tetris_ip:1.0",
-        "xci_name": "tetris_bd_tetris_ip_0_0",
-        "xci_path": "ip\\tetris_bd_tetris_ip_0_0\\tetris_bd_tetris_ip_0_0.xci",
+        "xci_name": "tetris_bd_tetris_ip_0_1",
+        "xci_path": "ip\\tetris_bd_tetris_ip_0_1\\tetris_bd_tetris_ip_0_1.xci",
         "inst_hier_path": "tetris_ip_0"
       }
     },

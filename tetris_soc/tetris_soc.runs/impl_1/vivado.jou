@@ -3,8 +3,8 @@
 # SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
 # IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
 # SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
-# Start of session at: Mon May  4 02:59:24 2026
-# Process ID: 23476
+# Start of session at: Mon May  4 05:01:47 2026
+# Process ID: 21072
 # Current directory: C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc.runs/impl_1
 # Command line: vivado.exe -log tetris_bd_wrapper.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source tetris_bd_wrapper.tcl -notrace
 # Log file: C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc.runs/impl_1/tetris_bd_wrapper.vdi

@@ -18,10 +18,10 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==tetris_bd_p
 # IP: bd/tetris_bd/ip/tetris_bd_rst_ps7_0_50M_0/tetris_bd_rst_ps7_0_50M_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==tetris_bd_rst_ps7_0_50M_0 || ORIG_REF_NAME==tetris_bd_rst_ps7_0_50M_0} -quiet] -quiet
 
-# IP: bd/tetris_bd/ip/tetris_bd_tetris_ip_0_0/tetris_bd_tetris_ip_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==tetris_bd_tetris_ip_0_0 || ORIG_REF_NAME==tetris_bd_tetris_ip_0_0} -quiet] -quiet
-
 # IP: bd/tetris_bd/ip/tetris_bd_auto_pc_0/tetris_bd_auto_pc_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==tetris_bd_auto_pc_0 || ORIG_REF_NAME==tetris_bd_auto_pc_0} -quiet] -quiet
+
+# IP: bd/tetris_bd/ip/tetris_bd_tetris_ip_0_1/tetris_bd_tetris_ip_0_1.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==tetris_bd_tetris_ip_0_1 || ORIG_REF_NAME==tetris_bd_tetris_ip_0_1} -quiet] -quiet
 
 # XDC: c:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc.gen/sources_1/bd/tetris_bd/tetris_bd_ooc.xdc

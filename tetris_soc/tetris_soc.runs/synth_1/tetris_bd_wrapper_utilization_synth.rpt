@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-| Date         : Mon May  4 02:59:15 2026
+| Date         : Mon May  4 05:01:39 2026
 | Host         : Charbel running 64-bit major release  (build 9200)
 | Command      : report_utilization -file tetris_bd_wrapper_utilization_synth.rpt -pb tetris_bd_wrapper_utilization_synth.pb
 | Design       : tetris_bd_wrapper
@@ -159,7 +159,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 +----------------------------------+------+
 |             Ref Name             | Used |
 +----------------------------------+------+
-| tetris_bd_tetris_ip_0_0          |    1 |
+| tetris_bd_tetris_ip_0_1          |    1 |
 | tetris_bd_rst_ps7_0_50M_0        |    1 |
 | tetris_bd_processing_system7_0_0 |    1 |
 | tetris_bd_clk_wiz_0_0            |    1 |

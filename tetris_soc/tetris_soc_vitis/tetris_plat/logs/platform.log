@@ -16235,3 +16235,447 @@ TRACE::2026-05-04.03:55:59::SCWMssOS::DEBUG:  swdes dump  C:/Users/Char/Document
 C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
 
 TRACE::2026-05-04.03:55:59::SCWMssOS::Sw design exists and opened at  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2026-05-04.05:05:19::SCWPlatform::Trying to open the hw design at C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:19::SCWPlatform::DSA given C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:19::SCWPlatform::DSA absoulate path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:19::SCWPlatform::DSA directory C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw
+TRACE::2026-05-04.05:05:19::SCWPlatform:: Platform Path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:19::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2026-05-04.05:05:19::SCWPlatform::Do not have an existing db opened. 
+TRACE::2026-05-04.05:05:21::SCWPlatform::Opened new HwDB with name tetris_bd_wrapper
+TRACE::2026-05-04.05:05:21::SCWReader::Active system found as  tetris_plat
+TRACE::2026-05-04.05:05:21::SCWReader::Handling sysconfig tetris_plat
+TRACE::2026-05-04.05:05:21::SCWDomain::checking for install qemu data   : 
+TRACE::2026-05-04.05:05:21::SCWDomain:: Using the QEMU Data from install at  : C:/Xilinx/Vitis/2023.1/data/emulation/platforms/zynq/sw/a9_standalone/qemu/
+TRACE::2026-05-04.05:05:21::SCWDomain:: Using the QEMU args  from install at  : C:/Xilinx/Vitis/2023.1/data/emulation/platforms/zynq/sw/a9_standalone/qemu/qemu_args.txt
+TRACE::2026-05-04.05:05:21::SCWPlatform::Trying to open the hw design at C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA given C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA absoulate path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA directory C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw
+TRACE::2026-05-04.05:05:21::SCWPlatform:: Platform Path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2026-05-04.05:05:21::SCWPlatform::Trying to set the existing hwdb with name tetris_bd_wrapper
+TRACE::2026-05-04.05:05:21::SCWPlatform::Opened existing hwdb tetris_bd_wrapper
+TRACE::2026-05-04.05:05:21::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2026-05-04.05:05:21::SCWPlatform::Trying to open the hw design at C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA given C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA absoulate path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA directory C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw
+TRACE::2026-05-04.05:05:21::SCWPlatform:: Platform Path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2026-05-04.05:05:21::SCWPlatform::Trying to set the existing hwdb with name tetris_bd_wrapper
+TRACE::2026-05-04.05:05:21::SCWPlatform::Opened existing hwdb tetris_bd_wrapper
+TRACE::2026-05-04.05:05:21::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2026-05-04.05:05:21::SCWPlatform::Trying to open the hw design at C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA given C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA absoulate path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA directory C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw
+TRACE::2026-05-04.05:05:21::SCWPlatform:: Platform Path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2026-05-04.05:05:21::SCWPlatform::Trying to set the existing hwdb with name tetris_bd_wrapper
+TRACE::2026-05-04.05:05:21::SCWPlatform::Opened existing hwdb tetris_bd_wrapper
+TRACE::2026-05-04.05:05:21::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2026-05-04.05:05:21::SCWReader::Boot application domain added for zynq_fsbl
+TRACE::2026-05-04.05:05:21::SCWPlatform::Trying to open the hw design at C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA given C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA absoulate path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA directory C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw
+TRACE::2026-05-04.05:05:21::SCWPlatform:: Platform Path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2026-05-04.05:05:21::SCWPlatform::Trying to set the existing hwdb with name tetris_bd_wrapper
+TRACE::2026-05-04.05:05:21::SCWPlatform::Opened existing hwdb tetris_bd_wrapper
+TRACE::2026-05-04.05:05:21::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2026-05-04.05:05:21::SCWMssOS::Checking the sw design at  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2026-05-04.05:05:21::SCWMssOS::DEBUG:  swdes dump  
+TRACE::2026-05-04.05:05:21::SCWMssOS::No sw design opened at  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2026-05-04.05:05:21::SCWMssOS::mss exists loading the mss file  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2026-05-04.05:05:21::SCWMssOS::Opened the sw design from mss  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2026-05-04.05:05:21::SCWMssOS::Adding the swdes entry C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss with des name system
+TRACE::2026-05-04.05:05:21::SCWMssOS::updating the scw layer about changes
+TRACE::2026-05-04.05:05:21::SCWMssOS::Opened the sw design.  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2026-05-04.05:05:21::SCWPlatform::Trying to open the hw design at C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA given C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA absoulate path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA directory C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw
+TRACE::2026-05-04.05:05:21::SCWPlatform:: Platform Path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2026-05-04.05:05:21::SCWPlatform::Trying to set the existing hwdb with name tetris_bd_wrapper
+TRACE::2026-05-04.05:05:21::SCWPlatform::Opened existing hwdb tetris_bd_wrapper
+TRACE::2026-05-04.05:05:21::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2026-05-04.05:05:21::SCWMssOS::Checking the sw design at  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2026-05-04.05:05:21::SCWMssOS::DEBUG:  swdes dump  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2026-05-04.05:05:21::SCWMssOS::Sw design exists and opened at  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2026-05-04.05:05:21::SCWMssOS:: library already available in sw design:  xilffs:5.0
+TRACE::2026-05-04.05:05:21::SCWPlatform::Trying to open the hw design at C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA given C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA absoulate path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA directory C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw
+TRACE::2026-05-04.05:05:21::SCWPlatform:: Platform Path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2026-05-04.05:05:21::SCWPlatform::Trying to set the existing hwdb with name tetris_bd_wrapper
+TRACE::2026-05-04.05:05:21::SCWPlatform::Opened existing hwdb tetris_bd_wrapper
+TRACE::2026-05-04.05:05:21::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2026-05-04.05:05:21::SCWMssOS::Checking the sw design at  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2026-05-04.05:05:21::SCWMssOS::DEBUG:  swdes dump  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2026-05-04.05:05:21::SCWMssOS::Sw design exists and opened at  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2026-05-04.05:05:21::SCWMssOS:: library already available in sw design:  xilrsa:1.6
+TRACE::2026-05-04.05:05:21::SCWPlatform::Trying to open the hw design at C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA given C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA absoulate path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA directory C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw
+TRACE::2026-05-04.05:05:21::SCWPlatform:: Platform Path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2026-05-04.05:05:21::SCWPlatform::Trying to set the existing hwdb with name tetris_bd_wrapper
+TRACE::2026-05-04.05:05:21::SCWPlatform::Opened existing hwdb tetris_bd_wrapper
+TRACE::2026-05-04.05:05:21::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2026-05-04.05:05:21::SCWMssOS::Checking the sw design at  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2026-05-04.05:05:21::SCWMssOS::DEBUG:  swdes dump  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2026-05-04.05:05:21::SCWMssOS::Sw design exists and opened at  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2026-05-04.05:05:21::SCWPlatform::Trying to open the hw design at C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA given C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA absoulate path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA directory C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw
+TRACE::2026-05-04.05:05:21::SCWPlatform:: Platform Path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2026-05-04.05:05:21::SCWPlatform::Trying to set the existing hwdb with name tetris_bd_wrapper
+TRACE::2026-05-04.05:05:21::SCWPlatform::Opened existing hwdb tetris_bd_wrapper
+TRACE::2026-05-04.05:05:21::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2026-05-04.05:05:21::SCWMssOS::Checking the sw design at  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2026-05-04.05:05:21::SCWMssOS::DEBUG:  swdes dump  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2026-05-04.05:05:21::SCWMssOS::Sw design exists and opened at  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2026-05-04.05:05:21::SCWMssOS::Saving the mss changes C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2026-05-04.05:05:21::SCWMssOS::Found a swdesign opened with the mssfile.
+TRACE::2026-05-04.05:05:21::SCWMssOS::Completed writemss as part of save.
+TRACE::2026-05-04.05:05:21::SCWMssOS::Commit changes completed.
+TRACE::2026-05-04.05:05:21::SCWReader::Adding prebuilt librarypaths as   
+TRACE::2026-05-04.05:05:21::SCWReader::Adding prebuilt incpaths  as   
+TRACE::2026-05-04.05:05:21::SCWPlatform::Trying to open the hw design at C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA given C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA absoulate path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA directory C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw
+TRACE::2026-05-04.05:05:21::SCWPlatform:: Platform Path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2026-05-04.05:05:21::SCWPlatform::Trying to set the existing hwdb with name tetris_bd_wrapper
+TRACE::2026-05-04.05:05:21::SCWPlatform::Opened existing hwdb tetris_bd_wrapper
+TRACE::2026-05-04.05:05:21::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2026-05-04.05:05:21::SCWMssOS::Checking the sw design at  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2026-05-04.05:05:21::SCWMssOS::DEBUG:  swdes dump  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2026-05-04.05:05:21::SCWMssOS::Sw design exists and opened at  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2026-05-04.05:05:21::SCWReader::No isolation master present  
+TRACE::2026-05-04.05:05:21::SCWDomain::checking for install qemu data   : 
+TRACE::2026-05-04.05:05:21::SCWDomain:: Using the QEMU Data from install at  : C:/Xilinx/Vitis/2023.1/data/emulation/platforms/zynq/sw/a9_standalone/qemu/
+TRACE::2026-05-04.05:05:21::SCWDomain:: Using the QEMU args  from install at  : C:/Xilinx/Vitis/2023.1/data/emulation/platforms/zynq/sw/a9_standalone/qemu/qemu_args.txt
+TRACE::2026-05-04.05:05:21::SCWPlatform::Trying to open the hw design at C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA given C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA absoulate path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA directory C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw
+TRACE::2026-05-04.05:05:21::SCWPlatform:: Platform Path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2026-05-04.05:05:21::SCWPlatform::Trying to set the existing hwdb with name tetris_bd_wrapper
+TRACE::2026-05-04.05:05:21::SCWPlatform::Opened existing hwdb tetris_bd_wrapper
+TRACE::2026-05-04.05:05:21::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2026-05-04.05:05:21::SCWPlatform::Trying to open the hw design at C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA given C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA absoulate path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA directory C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw
+TRACE::2026-05-04.05:05:21::SCWPlatform:: Platform Path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2026-05-04.05:05:21::SCWPlatform::Trying to set the existing hwdb with name tetris_bd_wrapper
+TRACE::2026-05-04.05:05:21::SCWPlatform::Opened existing hwdb tetris_bd_wrapper
+TRACE::2026-05-04.05:05:21::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2026-05-04.05:05:21::SCWPlatform::Trying to open the hw design at C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA given C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA absoulate path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA directory C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw
+TRACE::2026-05-04.05:05:21::SCWPlatform:: Platform Path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2026-05-04.05:05:21::SCWPlatform::Trying to set the existing hwdb with name tetris_bd_wrapper
+TRACE::2026-05-04.05:05:21::SCWPlatform::Opened existing hwdb tetris_bd_wrapper
+TRACE::2026-05-04.05:05:21::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2026-05-04.05:05:21::SCWMssOS::Checking the sw design at  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2026-05-04.05:05:21::SCWMssOS::DEBUG:  swdes dump  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2026-05-04.05:05:21::SCWMssOS::No sw design opened at  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2026-05-04.05:05:21::SCWMssOS::mss exists loading the mss file  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2026-05-04.05:05:21::SCWMssOS::Opened the sw design from mss  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2026-05-04.05:05:21::SCWMssOS::Adding the swdes entry C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/ps7_cortexa9_0/standalone_domain/bsp/system.mss with des name system_0
+TRACE::2026-05-04.05:05:21::SCWMssOS::updating the scw layer about changes
+TRACE::2026-05-04.05:05:21::SCWMssOS::Opened the sw design.  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2026-05-04.05:05:21::SCWPlatform::Trying to open the hw design at C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA given C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA absoulate path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA directory C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw
+TRACE::2026-05-04.05:05:21::SCWPlatform:: Platform Path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2026-05-04.05:05:21::SCWPlatform::Trying to set the existing hwdb with name tetris_bd_wrapper
+TRACE::2026-05-04.05:05:21::SCWPlatform::Opened existing hwdb tetris_bd_wrapper
+TRACE::2026-05-04.05:05:21::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2026-05-04.05:05:21::SCWMssOS::Checking the sw design at  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2026-05-04.05:05:21::SCWMssOS::DEBUG:  swdes dump  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system_0||
+C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2026-05-04.05:05:21::SCWMssOS::Sw design exists and opened at  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2026-05-04.05:05:21::SCWPlatform::Trying to open the hw design at C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA given C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA absoulate path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA directory C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw
+TRACE::2026-05-04.05:05:21::SCWPlatform:: Platform Path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2026-05-04.05:05:21::SCWPlatform::Trying to set the existing hwdb with name tetris_bd_wrapper
+TRACE::2026-05-04.05:05:21::SCWPlatform::Opened existing hwdb tetris_bd_wrapper
+TRACE::2026-05-04.05:05:21::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2026-05-04.05:05:21::SCWMssOS::Checking the sw design at  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2026-05-04.05:05:21::SCWMssOS::DEBUG:  swdes dump  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system_0||
+C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2026-05-04.05:05:21::SCWMssOS::Sw design exists and opened at  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2026-05-04.05:05:21::SCWMssOS::Saving the mss changes C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2026-05-04.05:05:21::SCWMssOS::Found a swdesign opened with the mssfile.
+TRACE::2026-05-04.05:05:21::SCWMssOS::Completed writemss as part of save.
+TRACE::2026-05-04.05:05:21::SCWMssOS::Commit changes completed.
+TRACE::2026-05-04.05:05:21::SCWReader::Adding prebuilt librarypaths as   
+TRACE::2026-05-04.05:05:21::SCWReader::Adding prebuilt incpaths  as   
+TRACE::2026-05-04.05:05:21::SCWPlatform::Trying to open the hw design at C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA given C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA absoulate path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform::DSA directory C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw
+TRACE::2026-05-04.05:05:21::SCWPlatform:: Platform Path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:21::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2026-05-04.05:05:21::SCWPlatform::Trying to set the existing hwdb with name tetris_bd_wrapper
+TRACE::2026-05-04.05:05:21::SCWPlatform::Opened existing hwdb tetris_bd_wrapper
+TRACE::2026-05-04.05:05:21::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2026-05-04.05:05:21::SCWMssOS::Checking the sw design at  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2026-05-04.05:05:21::SCWMssOS::DEBUG:  swdes dump  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system_0||
+C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2026-05-04.05:05:21::SCWMssOS::Sw design exists and opened at  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2026-05-04.05:05:21::SCWReader::No isolation master present  
+TRACE::2026-05-04.05:05:24::SCWPlatform::DSA given C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/tempdsa/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:24::SCWPlatform::DSA absoulate path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/tempdsa/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:24::SCWPlatform:: Platform location is C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/tempdsa
+TRACE::2026-05-04.05:05:24::SCWPlatform:: Platform Path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/tempdsa/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:24::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2026-05-04.05:05:26::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2026-05-04.05:05:26::SCWMssOS::Doing hw sync for the mss in domain: zynq_fsbl
+TRACE::2026-05-04.05:05:26::SCWPlatform::Trying to open the hw design at C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:26::SCWPlatform::DSA given C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:26::SCWPlatform::DSA absoulate path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:26::SCWPlatform::DSA directory C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw
+TRACE::2026-05-04.05:05:26::SCWPlatform:: Platform Path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:26::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2026-05-04.05:05:26::SCWPlatform::Trying to set the existing hwdb with name tetris_bd_wrapper
+TRACE::2026-05-04.05:05:26::SCWPlatform::Opened existing hwdb tetris_bd_wrapper
+TRACE::2026-05-04.05:05:26::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2026-05-04.05:05:26::SCWPlatform::Trying to open the hw design at C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:26::SCWPlatform::DSA given C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:26::SCWPlatform::DSA absoulate path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:26::SCWPlatform::DSA directory C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw
+TRACE::2026-05-04.05:05:26::SCWPlatform:: Platform Path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:26::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2026-05-04.05:05:26::SCWPlatform::Trying to set the existing hwdb with name tetris_bd_wrapper
+TRACE::2026-05-04.05:05:26::SCWPlatform::Opened existing hwdb tetris_bd_wrapper
+TRACE::2026-05-04.05:05:26::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2026-05-04.05:05:26::SCWMssOS::Checking the sw design at  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2026-05-04.05:05:26::SCWMssOS::DEBUG:  swdes dump  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system_0||
+C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2026-05-04.05:05:26::SCWMssOS::Sw design exists and opened at  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2026-05-04.05:05:26::SCWPlatform::Trying to open the hw design at C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/tempdsa/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:26::SCWPlatform::DSA given C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/tempdsa/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:26::SCWPlatform::DSA absoulate path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/tempdsa/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:26::SCWPlatform::DSA directory C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/tempdsa
+TRACE::2026-05-04.05:05:26::SCWPlatform:: Platform Path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/tempdsa/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:26::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2026-05-04.05:05:26::SCWPlatform::update - Opened existing hwdb tetris_bd_wrapper_0
+TRACE::2026-05-04.05:05:26::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2026-05-04.05:05:26::SCWMssOS::Doing hw sync for the mss in domain: standalone_domain
+TRACE::2026-05-04.05:05:26::SCWPlatform::Trying to open the hw design at C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:26::SCWPlatform::DSA given C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:26::SCWPlatform::DSA absoulate path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:26::SCWPlatform::DSA directory C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw
+TRACE::2026-05-04.05:05:26::SCWPlatform:: Platform Path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:26::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2026-05-04.05:05:26::SCWPlatform::Trying to set the existing hwdb with name tetris_bd_wrapper
+TRACE::2026-05-04.05:05:26::SCWPlatform::Opened existing hwdb tetris_bd_wrapper
+TRACE::2026-05-04.05:05:26::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2026-05-04.05:05:26::SCWPlatform::Trying to open the hw design at C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:26::SCWPlatform::DSA given C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:26::SCWPlatform::DSA absoulate path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:26::SCWPlatform::DSA directory C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw
+TRACE::2026-05-04.05:05:26::SCWPlatform:: Platform Path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:26::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2026-05-04.05:05:26::SCWPlatform::Trying to set the existing hwdb with name tetris_bd_wrapper
+TRACE::2026-05-04.05:05:26::SCWPlatform::Opened existing hwdb tetris_bd_wrapper
+TRACE::2026-05-04.05:05:26::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2026-05-04.05:05:26::SCWMssOS::Checking the sw design at  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2026-05-04.05:05:26::SCWMssOS::DEBUG:  swdes dump  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system_0||
+C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2026-05-04.05:05:26::SCWMssOS::Sw design exists and opened at  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2026-05-04.05:05:26::SCWPlatform::Trying to open the hw design at C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/tempdsa/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:26::SCWPlatform::DSA given C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/tempdsa/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:26::SCWPlatform::DSA absoulate path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/tempdsa/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:26::SCWPlatform::DSA directory C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/tempdsa
+TRACE::2026-05-04.05:05:26::SCWPlatform:: Platform Path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/tempdsa/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:26::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2026-05-04.05:05:26::SCWPlatform::update - Opened existing hwdb tetris_bd_wrapper_0
+TRACE::2026-05-04.05:05:26::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2026-05-04.05:05:26::SCWMssOS::Saving the mss changes C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2026-05-04.05:05:26::SCWMssOS::Found a swdesign opened with the mssfile.
+TRACE::2026-05-04.05:05:26::SCWMssOS::Completed writemss as part of save.
+TRACE::2026-05-04.05:05:26::SCWMssOS::Commit changes completed.
+TRACE::2026-05-04.05:05:26::SCWMssOS::Completed hw sync for the mss in domain: zynq_fsbl
+TRACE::2026-05-04.05:05:26::SCWMssOS::Removing the swdes entry for  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2026-05-04.05:05:26::SCWMssOS::Saving the mss changes C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2026-05-04.05:05:26::SCWMssOS::Found a swdesign opened with the mssfile.
+TRACE::2026-05-04.05:05:26::SCWMssOS::Completed writemss as part of save.
+TRACE::2026-05-04.05:05:26::SCWMssOS::Commit changes completed.
+TRACE::2026-05-04.05:05:26::SCWMssOS::Completed hw sync for the mss in domain: standalone_domain
+TRACE::2026-05-04.05:05:26::SCWMssOS::Removing the swdes entry for  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2026-05-04.05:05:26::SCWPlatform::Trying to open the hw design at C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:26::SCWPlatform::DSA given C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:26::SCWPlatform::DSA absoulate path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:26::SCWPlatform::DSA directory C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw
+TRACE::2026-05-04.05:05:26::SCWPlatform:: Platform Path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:26::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2026-05-04.05:05:26::SCWPlatform::Do not have an existing db opened. 
+TRACE::2026-05-04.05:05:28::SCWPlatform::Opened new HwDB with name tetris_bd_wrapper_1
+TRACE::2026-05-04.05:05:28::SCWMssOS::Saving the mss changes C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2026-05-04.05:05:28::SCWMssOS::Adding the swdes entry, mss present, able to open swdb C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss with des name system
+TRACE::2026-05-04.05:05:28::SCWMssOS::Writing the mss file completed C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2026-05-04.05:05:28::SCWMssOS::Commit changes completed.
+TRACE::2026-05-04.05:05:28::SCWMssOS::Saving the mss changes C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2026-05-04.05:05:28::SCWMssOS::Adding the swdes entry, mss present, able to open swdb C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/ps7_cortexa9_0/standalone_domain/bsp/system.mss with des name system_0
+TRACE::2026-05-04.05:05:28::SCWMssOS::Writing the mss file completed C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2026-05-04.05:05:28::SCWMssOS::Commit changes completed.
+TRACE::2026-05-04.05:05:28::SCWPlatform::Trying to open the hw design at C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:28::SCWPlatform::DSA given C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:28::SCWPlatform::DSA absoulate path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:28::SCWPlatform::DSA directory C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw
+TRACE::2026-05-04.05:05:28::SCWPlatform:: Platform Path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:28::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2026-05-04.05:05:28::SCWPlatform::Trying to set the existing hwdb with name tetris_bd_wrapper_1
+TRACE::2026-05-04.05:05:28::SCWPlatform::Opened existing hwdb tetris_bd_wrapper_1
+TRACE::2026-05-04.05:05:28::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2026-05-04.05:05:28::SCWMssOS::Checking the sw design at  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2026-05-04.05:05:28::SCWMssOS::DEBUG:  swdes dump  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system_0||
+C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2026-05-04.05:05:28::SCWMssOS::Sw design exists and opened at  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2026-05-04.05:05:28::SCWPlatform::Trying to open the hw design at C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:28::SCWPlatform::DSA given C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:28::SCWPlatform::DSA absoulate path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:28::SCWPlatform::DSA directory C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw
+TRACE::2026-05-04.05:05:28::SCWPlatform:: Platform Path C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/hw/tetris_bd_wrapper.xsa
+TRACE::2026-05-04.05:05:28::SCWPlatform:: Unique name xilinx:zybo-z7-10::0.0
+TRACE::2026-05-04.05:05:28::SCWPlatform::Trying to set the existing hwdb with name tetris_bd_wrapper_1
+TRACE::2026-05-04.05:05:28::SCWPlatform::Opened existing hwdb tetris_bd_wrapper_1
+TRACE::2026-05-04.05:05:28::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2026-05-04.05:05:28::SCWMssOS::Checking the sw design at  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2026-05-04.05:05:28::SCWMssOS::DEBUG:  swdes dump  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/ps7_cortexa9_0/standalone_domain/bsp/system.mss|system_0||
+C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2026-05-04.05:05:28::SCWMssOS::Sw design exists and opened at  C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_soc_vitis/tetris_plat/ps7_cortexa9_0/standalone_domain/bsp/system.mss
+TRACE::2026-05-04.05:05:28::SCWWriter::formatted JSON is {
+	"platformName":	"tetris_plat",
+	"sprVersion":	"2.0",
+	"mode":	"gui",
+	"dsaType":	"Fixed",
+	"platformDesc":	"tetris_plat",
+	"platHandOff":	"C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_bd_wrapper.xsa",
+	"platIntHandOff":	"<platformDir>/hw/tetris_bd_wrapper.xsa",
+	"deviceType":	"zynq",
+	"platIsPrebuiltAutogen":	"false",
+	"platIsNoBootBsp":	"false",
+	"hasFsblMakeHasChanges":	"false",
+	"hasPmufwMakeHasChanges":	"false",
+	"fsblExtraCompilerFlags":	"-MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard ",
+	"platPreBuiltFlag":	false,
+	"platformSamplesDir":	"",
+	"platActiveSys":	"tetris_plat",
+	"systems":	[{
+			"systemName":	"tetris_plat",
+			"systemDesc":	"tetris_plat",
+			"sysIsBootAutoGen":	"true",
+			"systemDispName":	"tetris_plat",
+			"sysActiveDom":	"standalone_domain",
+			"sysDefaultDom":	"standalone_domain",
+			"domains":	[{
+					"domainName":	"zynq_fsbl",
+					"domainDispName":	"zynq_fsbl",
+					"domainDesc":	"FSBL Application BSP - Auto Generated.",
+					"processors":	"ps7_cortexa9_0",
+					"os":	"standalone",
+					"sdxOs":	"standalone",
+					"debugEnable":	"",
+					"domRuntimes":	["cpp"],
+					"swRepo":	"",
+					"mssOsVer":	"8.1",
+					"mssFile":	"",
+					"md5Digest":	"3fee0946feecfd1daa0ea9e15fc556691",
+					"compatibleApp":	"zynq_fsbl",
+					"domType":	"bootDomain",
+					"arch":	"32-bit",
+					"appSettings":	{
+						"appCompilerFlags":	"",
+						"appLinkerFlags":	""
+					},
+					"addedLibs":	["xilffs:5.0", "xilrsa:1.6"],
+					"libOptions":	{
+						"libsContainingOptions":	[]
+					},
+					"changedDrivers":	{
+						"tetris_ip_0":	"none:",
+						"tetris_soc_ip_0":	"none:",
+						"changedCells":	["tetris_ip_0", "tetris_soc_ip_0"]
+					},
+					"prebuiltLibs":	{
+						"prebuiltIncPath":	[],
+						"prebuiltLibPath":	[]
+					},
+					"isolation":	{
+					}
+				}, {
+					"domainName":	"standalone_domain",
+					"domainDispName":	"standalone on ps7_cortexa9_0",
+					"domainDesc":	"standalone_domain",
+					"processors":	"ps7_cortexa9_0",
+					"os":	"standalone",
+					"sdxOs":	"standalone",
+					"qemuArgs":	"<platformDir>/resources/tetris_plat/standalone_domain/qemu_args.txt",
+					"qemuData":	"<platformDir>/resources/tetris_plat/standalone_domain/qemu",
+					"debugEnable":	"False",
+					"domRuntimes":	["cpp"],
+					"swRepo":	"",
+					"mssOsVer":	"8.1",
+					"mssFile":	"",
+					"md5Digest":	"a6c86dc43669dd3eaddd03014f6116fe1",
+					"compatibleApp":	"",
+					"domType":	"mssDomain",
+					"appSettings":	{
+						"appCompilerFlags":	"",
+						"appLinkerFlags":	""
+					},
+					"addedLibs":	[],
+					"libOptions":	{
+						"libsContainingOptions":	[]
+					},
+					"changedDrivers":	{
+						"tetris_ip_0":	"none:",
+						"tetris_soc_ip_0":	"none:",
+						"changedCells":	["tetris_ip_0", "tetris_soc_ip_0"]
+					},
+					"prebuiltLibs":	{
+						"prebuiltIncPath":	[],
+						"prebuiltLibPath":	[]
+					},
+					"isolation":	{
+					}
+				}]
+		}]
+}

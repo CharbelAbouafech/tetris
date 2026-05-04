@@ -68,3 +68,5 @@ platform generate -domains
 platform active {tetris_plat}
 platform config -updatehw {C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_bd_wrapper.xsa}
 platform generate -domains 
+platform active {tetris_plat}
+platform config -updatehw {C:/Users/Char/Documents/ECE_520/tetris-soc/tetris_soc/tetris_bd_wrapper.xsa}

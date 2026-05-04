@@ -51,7 +51,7 @@ vga_sync u_vga_sync (
     .pixel_y (pixel_y)
 );
 
-pixel_gen_test u_pixel_gen (
+pixel_gen u_pixel_gen (
     .active       (active),
     .pixel_x      (pixel_x),
     .pixel_y      (pixel_y),
