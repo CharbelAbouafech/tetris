@@ -1,328 +1,172 @@
-# Tetris SoC — Zybo Z7-10
+# Tetris on the Zybo Z7-10
 
-A fully playable hardware-accelerated Tetris running on the Zybo Z7-10 FPGA board. The Programmable Logic (PL) handles all VGA display through a custom AXI4-Lite IP core, while the Processing System (PS) runs a bare-metal C application implementing NES-accurate game mechanics.
+A playable Tetris on the Zybo Z7-10 (Zynq-7010). The FPGA fabric (PL) draws the screen over VGA. The ARM core (PS) runs the game in bare-metal C and sends what to draw through a custom AXI4-Lite peripheral. Scoring and gravity follow the NES version. This is a course project for ECE 520, Spring 2026.
 
----
-
-## Table of Contents
-
-- [Overview](#overview)
-- [Project Structure](#project-structure)
-- [Hardware Architecture (PL)](#hardware-architecture-pl)
-  - [Block Design](#block-design)
-  - [Module Descriptions](#module-descriptions)
-  - [AXI Register Map](#axi-register-map)
-  - [VGA Display Layout](#vga-display-layout)
-- [Software Architecture (PS)](#software-architecture-ps)
-  - [Game States](#game-states)
-  - [Controls](#controls)
-  - [Scoring](#scoring)
-- [Simulation & Verification](#simulation--verification)
-- [Peripherals & Connections](#peripherals--connections)
-- [Pin Constraints](#pin-constraints)
-- [Tools](#tools)
-
----
-
-## Overview
-
-| | |
-|---|---|
-| **Board** | Zybo Z7-10 (xc7z010clg400-1) |
-| **Display** | 640x480 @ 60 Hz VGA via Pmod |
-| **Interface** | Custom AXI4-Lite IP at `0x43C00000` |
-| **Software** | Bare-metal C on ARM Cortex-A9 |
-| **Tools** | Vivado + Vitis 2024.x |
-
----
-
-## Project Structure
+## How it's split
 
 ```
-tetris-soc/
-├── ip_repo/
-│   └── tetris_ip_1_0/
-│       ├── hdl/                          # Vivado synthesizes from here
-│       │   ├── tetris_ip_v1_0.v          # AXI IP top-level wrapper
-│       │   ├── tetris_ip_v1_0_S00_AXI.v  # AXI4-Lite slave
-│       │   ├── tetris_vga_core.v         # VGA subsystem
-│       │   ├── pixel_gen.v               # Pixel renderer
-│       │   └── vga_sync.v                # VGA timing generator
-│       └── src/                          # Working copy (sync to hdl/ after edits)
-├── tetris/
-│   └── tetris.srcs/
-│       ├── sources_1/new/                # RTL source files
-│       │   ├── tetris_vga_core.v
-│       │   ├── pixel_gen.v
-│       │   └── vga_sync.v
-│       ├── sim_1/new/                    # Testbenches
-│       │   ├── tb_pixel_gen.v
-│       │   └── tb_vga_sync.v
-│       └── constrs_1/new/
-│           └── constraints.xdc
-└── tetris_soc/                           # Vitis bare-metal application
-    ├── main.c
-    ├── game.c / game.h
-    └── hw.c / hw.h
+Zynq PS (Cortex-A9, bare-metal C)
+  main.c, game.c, hw.c
+        |  AXI4-Lite writes
+        v
+tetris_ip_v1_0  (AXI slave at 0x43C00000)
+  - control registers
+  - 200-cell board memory
+        |
+        v
+tetris_vga_core = vga_sync + pixel_gen  -->  VGA Pmod (JC, JD)
 ```
 
----
+Block design: the PS clock (FCLK) feeds a Clocking Wizard that makes the 25 MHz pixel clock, and the PS AXI master reaches the custom IP through an AXI interconnect.
 
-## Hardware Architecture (PL)
+## Hardware (PL)
 
-### Block Design
+**`tetris_ip_v1_0.v`** is the top wrapper. It holds the board memory: 200 cells of 4 bits each, one cell per square of the 10 x 20 board, with index = row x 10 + col. The tile ID is 0 for empty and 1 to 7 for the seven pieces. The AXI slave writes it on the AXI clock and the pixel renderer reads it asynchronously on the pixel clock, so it maps to distributed RAM (a block RAM can't do an asynchronous read). The signals are still named `bram_*`, but the memory is distributed RAM.
 
-```
-PS FCLK
-   |
-   v
-Clocking Wizard --> 25 MHz pclk --> tetris_ip_v1_0 --> VGA Pmod (JC, JD)
-                                          ^
-PS AXI Master --> AXI Interconnect -------+
-```
+**`tetris_ip_v1_0_S00_AXI.v`** is the AXI4-Lite slave. The word address is `awaddr[9:2]`. Words 0 to 15 are registers and words 16 to 215 write the board cells (cell index = word - 16, data in the low 4 bits). The board cells are write-only. Twelve of the registers go on to the rest of the design.
 
-- **Zynq PS** — provides FCLK and AXI master for register access
-- **Clocking Wizard** — converts PS FCLK to 25 MHz pixel clock
-- **AXI Interconnect** — routes AXI4-Lite from PS to custom IP
-- **tetris_ip_v1_0** — custom IP at base address `0x43C00000`
+**`tetris_vga_core.v`** wires `vga_sync` to `pixel_gen` and splits the 12-bit color into the three 4-bit VGA channels.
 
----
+**`vga_sync.v`** generates 640 x 480 timing from a 25 MHz pixel clock. Horizontal and vertical sync are active low and registered, so they come out one pixel clock after the counters.
 
-### Module Descriptions
+| | Visible | Front porch | Sync | Back porch | Total |
+|---|---|---|---|---|---|
+| Horizontal (pixels) | 640 | 16 | 96 | 48 | 800 |
+| Vertical (lines) | 480 | 10 | 2 | 33 | 525 |
 
-#### `tetris_ip_v1_0.v` — AXI IP Top Wrapper
-Top-level wrapper that instantiates the AXI slave and VGA core. Contains the 200-cell board distributed RAM (4-bit tile IDs per cell). The RAM is written synchronously by the AXI slave on the AXI clock and read asynchronously by the pixel renderer on the pixel clock.
+25 MHz / (800 x 525) is about 59.5 Hz, close enough to 60 Hz for the monitor.
 
-#### `tetris_ip_v1_0_S00_AXI.v` — AXI4-Lite Slave
-Implements the AXI4-Lite register interface. Decodes write transactions into 12 control registers and a BRAM write port, exposing all game state to the PS.
+**`pixel_gen.v`** is fully combinational. It takes `(pixel_x, pixel_y)` and returns an RGB444 color. It draws the board with a color per tile, the falling piece (4 blocks), the next-piece box, the score, line and level digits in a 7-segment style, a menu screen with a level selector, and a game-over screen with the final stats.
 
-#### `tetris_vga_core.v` — VGA Subsystem
-Wires `vga_sync` and `pixel_gen` together and exposes a clean port interface to the AXI wrapper. Receives 25 MHz pixel clock from the block design.
+### Register map
 
-#### `pixel_gen.v` — Pixel Renderer
-Fully combinational module that maps each (pixel_x, pixel_y) coordinate to an RGB444 color. Renders:
-- Game board with BRAM-backed tile colors
-- Active falling piece (4 blocks)
-- Next-piece preview box
-- 7-segment style score, lines, and level digits
-- Menu screen with level selector
-- Game over screen with final stats
+Base address `0x43C00000`. Byte address = base + 4 x word offset.
 
-#### `vga_sync.v` — VGA Timing Generator
-Generates standard 640x480 @ 60 Hz VGA timing from a 25 MHz pixel clock.
+| Word | Register | Bits | Meaning |
+|------|----------|------|---------|
+| 0 | control | [0] | enable |
+| | | [1] | test mode (checker background) |
+| | | [2] | show grid |
+| | | [4:3] | screen state: 00 playing, 01 menu, 10 game over |
+| 1 | border color | [11:0] | RGB444 (resets to white) |
+| 2 | block color | [11:0] | RGB444, active piece (resets to green) |
+| 3 to 6 | active block 0 to 3 | [15:8] / [7:0] | Y / X of each of the 4 blocks |
+| 7 | status | | not used by the renderer |
+| 8 | next piece | [2:0] | 0 I, 1 O, 2 T, 3 S, 4 Z, 5 J, 6 L |
+| 9 | score | [23:0] | 6 BCD digits |
+| 10 | lines | [15:0] | 4 BCD digits |
+| 11 | level | [7:0] | 2 BCD digits |
+| 12 to 15 | | | exist in the slave, not connected to anything |
+| 16 to 215 | board cells | [3:0] | tile ID, write-only |
 
-| Parameter | Value |
-|-----------|-------|
-| Horizontal visible | 640 px |
-| H front porch | 16 px |
-| H sync pulse | 96 px |
-| H back porch | 48 px |
-| **H total** | **800 px** |
-| Vertical visible | 480 lines |
-| V front porch | 10 lines |
-| V sync pulse | 2 lines |
-| V back porch | 33 lines |
-| **V total** | **525 lines** |
+Tile IDs: 0 empty, 1 I (cyan), 2 O (yellow), 3 T (purple), 4 S (green), 5 Z (red), 6 J (blue), 7 L (orange).
 
----
+### Screen layout
 
-### AXI Register Map
+The board is 160 x 320 pixels (10 x 20 cells at 16 x 16) with a 2-pixel border, and its top-left corner is at (240, 80). The score, lines, level and next-piece box sit to its right.
 
-Base address: `0x43C00000`
+## Software (PS)
 
-| Word Offset | Register | Bits | Description |
-|-------------|----------|------|-------------|
-| 0 | reg0_control | [0] | enable |
-| | | [1] | test_mode (checker background) |
-| | | [2] | show_grid |
-| | | [4:3] | screen_state: `00`=playing, `01`=menu, `10`=gameover |
-| 1 | reg1_border_color | [11:0] | RGB444 border color |
-| 2 | reg2_block_color | [11:0] | RGB444 active piece color |
-| 3 | reg3_active0_xy | [15:0] | Block 0: bits [15:8]=Y, [7:0]=X |
-| 4 | reg4_active1_xy | [15:0] | Block 1 |
-| 5 | reg5_active2_xy | [15:0] | Block 2 |
-| 6 | reg6_active3_xy | [15:0] | Block 3 |
-| 8 | reg8_next_piece | [2:0] | Next piece ID (0=I, 1=O, 2=T, 3=S, 4=Z, 5=J, 6=L) |
-| 9 | reg9_score_bcd | [23:0] | Score as 6-digit BCD |
-| 10 | reg10_lines_bcd | [15:0] | Lines cleared as 4-digit BCD |
-| 11 | reg11_level_bcd | [7:0] | Level as 2-digit BCD |
-| 16–215 | BOARD_CELL(r,c) | [3:0] | Board BRAM: index = row×10 + col |
+Bare-metal C on the Cortex-A9, with no OS or RTOS.
 
-Board BRAM tile IDs: `0`=empty, `1`=I (cyan), `2`=O (yellow), `3`=T (purple), `4`=S (green), `5`=Z (red), `6`=J (blue), `7`=L (orange)
+| File | What it does |
+|------|--------------|
+| `main.c` | Main loop, state machine, button polling |
+| `game.c` / `game.h` | Piece movement, rotation, line clears, gravity |
+| `hw.c` / `hw.h` | Register writes and board updates over AXI |
 
----
+**Game states:** MENU, then PLAYING (press SPACE), then GAMEOVER when the board tops out, then back to MENU (press SPACE).
 
-### VGA Display Layout
+**Controls:**
 
-```
-+------------------------------------------+
-|         TETRIS                           |
-|                            NEXT          |
-|  +--------------------+  +--------+      |
-|  |                    |  |        |      |
-|  |   Game Board       |  +--------+      |
-|  |   160 x 320 px     |                  |
-|  |   (10 x 20 cells)  |  SCORE           |
-|  |   16 px/cell       |  000000          |
-|  |                    |  LINES           |
-|  |                    |  0000            |
-|  |                    |  LEVEL           |
-|  |                    |  00              |
-|  +--------------------+                  |
-+------------------------------------------+
-```
+| Button | In the menu | In the game |
+|--------|-------------|-------------|
+| BTN0 | reset | reset |
+| BTN1 | lower starting level | move left |
+| BTN2 | raise starting level | move right |
+| BTN3 | start | hard drop |
+| Rotate | | **[fill in]** |
 
-Board origin: (240, 80). Cell size: 16x16 px. Border: 2 px.
+**Scoring** (NES values):
 
----
-
-## Software Architecture (PS)
-
-Bare-metal C application on the Zynq ARM Cortex-A9, no OS or RTOS.
-
-### File Overview
-
-| File | Responsibility |
-|------|---------------|
-| `main.c` | Top-level game loop, state machine, input polling |
-| `game.c/h` | Tetris logic: piece movement, rotation, line clears, gravity |
-| `hw.c/h` | Hardware driver: AXI register writes, board BRAM updates |
-
----
-
-### Game States
-
-```
-STATE_MENU
-    |
-    | SPACE pressed
-    v
-STATE_PLAYING
-    |
-    | board topped out
-    v
-STATE_GAMEOVER
-    |
-    | SPACE pressed
-    v
-STATE_MENU
-```
-
----
-
-### Controls
-
-| Button | In Menu | In Game |
-|--------|---------|---------|
-| BTN0 | Reset | Reset |
-| BTN1 (A) | Decrease start level | Move piece left |
-| BTN2 (D) | Increase start level | Move piece right |
-| BTN3 (SPACE) | Start game | Hard drop / confirm |
-
----
-
-### Scoring
-
-NES-accurate scoring and gravity.
-
-| Lines Cleared | Points |
+| Lines cleared | Points |
 |---------------|--------|
-| 1 | 40 × (level + 1) |
-| 2 | 100 × (level + 1) |
-| 3 | 300 × (level + 1) |
-| 4 (Tetris) | 1200 × (level + 1) |
+| 1 | 40 x (level + 1) |
+| 2 | 100 x (level + 1) |
+| 3 | 300 x (level + 1) |
+| 4 | 1200 x (level + 1) |
 
-**Level progression:** `level = selected_level + total_lines_cleared / 10`
+The level goes up every 10 lines. Gravity uses the NES table of frames per drop: 48 frames at level 0, 6 at level 9, 2 from level 19 and 1 from level 29.
 
-**Gravity:** NES 30-entry frames-per-drop table (level 0 = 48 frames/drop, level 9 = 6 frames/drop, level 19+ = 2, level 29+ = 1).
+## Verification
 
----
+Two self-checking testbenches run in Vivado XSim. Each check prints `PASS` or stops the simulation with `$fatal`.
 
-## Simulation & Verification
-
-Two self-checking testbenches run in Vivado XSim. Every check prints `PASS: ...` or calls `$fatal` with details on failure.
-
-### `tb_vga_sync.v`
-
-Verifies VGA timing at cycle-level accuracy:
+**`tb_vga_sync.v`** checks the timing cycle by cycle:
 
 | Check | Expected |
 |-------|----------|
-| Counters after reset | pixel_x=0, pixel_y=0 |
-| active at x=639 | 1 |
-| active at x=640 | 0 |
-| hsync before x=657 | 1 (not yet low) |
-| hsync at x=657 | 0 (registered 1 cycle after h_count=656) |
-| hsync at x=752 | 0 (still in pulse) |
-| hsync at x=753 | 1 (pulse over, width = 96 cycles) |
-| pixel_x/y after 800 ticks | (0, 1) — line wrap |
+| counters after reset | pixel_x = 0, pixel_y = 0 |
+| active at x = 639 / x = 640 | 1 / 0 |
+| hsync at x = 656 | still 1 |
+| hsync at x = 657 | 0 (registered one cycle after h_count = 656) |
+| hsync at x = 752 | 0 (still in the pulse) |
+| hsync at x = 753 | 1 (pulse over, 96 cycles wide) |
+| position after 800 clocks | (0, 1) |
 
-### `tb_pixel_gen.v`
+**`tb_pixel_gen.v`** checks the renderer:
 
-Verifies the pixel renderer combinationally:
+| Check | Expected |
+|-------|----------|
+| outside the active area | rgb = 000 |
+| left border at x = 239 | border color |
+| active block at cell (4, 5) | block color |
+| empty board cell | 000 |
+| grid line at local_x = 0 | 222 |
+| checker background in test mode | 124 or 012 |
+| board tile with a stored tile ID of 1 | 0EE (cyan) |
+| disabled | 000 |
+| menu title pixel | FFF |
+| "GAME" pixel on the game-over screen | FFF |
 
-| Check | Description |
-|-------|-------------|
-| inactive | rgb = 000 when active=0 |
-| left border | rgb = border_color at x=239 |
-| active block | rgb = block_color at cell (4,5) |
-| empty board cell | rgb = 000 |
-| grid line | rgb = 222 at local_x=0 |
-| checker background | rgb = 124 or 012 in test_mode |
-| BRAM tile | rgb = tile_color(1)=0EE with brd_rd_data=1 |
-| disabled | rgb = 000 when enable=0 |
-| menu text pixel | rgb = FFF at menu title coordinate |
-| gameover text pixel | rgb = FFF at GAME text coordinate |
+The game logic was tested by playing on the board.
 
----
+## Connections
 
-## Peripherals & Connections
+The Pmod VGA is a passive resistor-ladder DAC. It turns the 4-bit digital channels into analog levels of 0 to 0.7 V per channel.
 
-| Peripheral | Connection | Purpose |
-|------------|-----------|---------|
-| Pmod VGA (JC) | R[3:0], B[3:0] | Red and blue VGA channels |
-| Pmod VGA (JD) | G[3:0], HS, VS | Green channel + sync signals |
-| Push buttons | BTN0–BTN3 | Reset and game input |
-| Clocking Wizard | Block design | FCLK -> 25 MHz pixel clock |
+| Pmod | Carries | Pins |
+|------|---------|------|
+| JC | red [0..3], blue [0..3] | V15, W15, T11, T10 / W14, Y14, T12, U12 |
+| JD | green [0..3], HS, VS | T14, T15, P14, R14 / U14, U15 |
 
-The Pmod VGA adapter is a passive resistor-ladder DAC converting 4-bit digital signals to analog VGA levels (0–0.7 V per channel).
+All pins use LVCMOS33. The clock and reset pins are in `constraints.xdc`. Input comes from the four on-board push buttons.
 
----
+## Build and run
 
-## Pin Constraints
+Tools: Vivado and Vitis 2024.x, targeting the xc7z010clg400-1.
 
-| Signal | Pin | I/O Standard |
-|--------|-----|-------------|
-| pclk | K17 | LVCMOS33 |
-| reset_rtl | K18 | LVCMOS33 |
-| vga_r[0] | V15 | LVCMOS33 |
-| vga_r[1] | W15 | LVCMOS33 |
-| vga_r[2] | T11 | LVCMOS33 |
-| vga_r[3] | T10 | LVCMOS33 |
-| vga_g[0] | T14 | LVCMOS33 |
-| vga_g[1] | T15 | LVCMOS33 |
-| vga_g[2] | P14 | LVCMOS33 |
-| vga_g[3] | R14 | LVCMOS33 |
-| vga_b[0] | W14 | LVCMOS33 |
-| vga_b[1] | Y14 | LVCMOS33 |
-| vga_b[2] | T12 | LVCMOS33 |
-| vga_b[3] | U12 | LVCMOS33 |
-| vga_hs | U14 | LVCMOS33 |
-| vga_vs | U15 | LVCMOS33 |
+1. Open the Vivado project and make sure `ip_repo/` is on the IP repository path.
+2. Generate the bitstream and export the hardware.
+3. Create a Vitis platform from it, and a bare-metal application from the files in `tetris_soc/`.
+4. Program the board and run.
 
----
+## Repository layout
 
-## Tools
+```
+ip_repo/tetris_ip_1_0/hdl/    RTL that Vivado synthesizes
+tetris/tetris.srcs/           Vivado sources, testbenches (sim_1), constraints
+tetris_soc/                   Vitis bare-metal application
+```
 
-| Tool | Version |
-|------|---------|
-| Vivado | 2024.x |
-| Vitis | 2024.x |
-| Target Board | Zybo Z7-10 |
-| Device | xc7z010clg400-1 |
+`ip_repo/tetris_ip_1_0/src/` is my working copy of the RTL. I copy it into `hdl/` after edits.
 
----
+## Known limitations
+
+- The control registers (piece positions, colors, score digits) cross from the AXI clock to the pixel clock with no synchronizers, and so does the board memory. A multi-bit value could be read mid-update and cause a one-frame glitch. The fix would be shadow registers latched at the start of vertical blanking.
+- Register 7 and registers 12 to 15 exist in the AXI slave but nothing uses them.
+- Only the VGA modules have testbenches. The game logic has no automated tests.
 
 ## Author
 
-Charbel Abou Afech — ECE 520, Spring 2026
+Charbel Abou Afech, ECE 520, Spring 2026
